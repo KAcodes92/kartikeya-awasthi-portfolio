@@ -28,6 +28,8 @@ const TOOL_SLIDES: CoverflowSlide[] = [
     idx: "3.2",
     title: "Legacy Modernization Savings Estimator",
     desc: "Multi-variant business-case builder for CIO/CTO and Heads of Digital Transformation.",
+    image: "/tool-legacy-modernization.png",
+    imageAlt: "Legacy Modernization Savings Estimator interface",
   },
   {
     key: "ai-governance",
@@ -36,6 +38,8 @@ const TOOL_SLIDES: CoverflowSlide[] = [
     idx: "3.3",
     title: "AI Governance Assessment",
     desc: "Quiz-based diagnostic scoring regulatory exposure for Compliance and Risk leaders.",
+    image: "/tool-ai-governance.png",
+    imageAlt: "AI Governance Assessment interface",
   },
   {
     key: "underwriting-ai",
@@ -44,6 +48,8 @@ const TOOL_SLIDES: CoverflowSlide[] = [
     idx: "3.4",
     title: "Underwriting AI ROI Calculator",
     desc: "Quantifies cycle-time reduction and loss-ratio improvement in dollar terms.",
+    image: "/tool-underwriting-ai.png",
+    imageAlt: "Underwriting AI ROI Calculator interface",
   },
   {
     key: "cloud-migration",
@@ -52,6 +58,53 @@ const TOOL_SLIDES: CoverflowSlide[] = [
     idx: "3.5",
     title: "Cloud Migration & Infrastructure TCO Calculator",
     desc: "On-prem/legacy hosting cost vs. cloud TCO, with migration payback in months.",
+    image: "/tool-cloud-migration.png",
+    imageAlt: "Cloud Migration & Infrastructure TCO Calculator interface",
+  },
+  {
+    key: "shadow-ai-risk",
+    tag: "Cybersecurity · CISO / CDO · TOFU",
+    idx: "3.6",
+    title: "Shadow AI & Data Exposure Risk Assessment",
+    desc: "Discovers the dollarized risk from ungoverned AI tool usage across your organization.",
+    image: "/tool-shadow-ai-risk.png",
+    imageAlt: "Shadow AI & Data Exposure Risk Assessment interface",
+  },
+  {
+    key: "it-spend-benchmark",
+    tag: "FinOps · CFO / CIO · TOFU–MOFU",
+    idx: "3.7",
+    title: "IT Spend Benchmarking Tool",
+    desc: "Compares IT spend as a % of revenue against industry peers and sizes the cost-optimization gap.",
+    image: "/tool-it-spend-benchmark.png",
+    imageAlt: "IT Spend Benchmarking Tool interface",
+  },
+  {
+    key: "devops-maturity",
+    tag: "Platform Eng / SRE · VP Eng · MOFU",
+    idx: "3.8",
+    title: "DevOps Maturity & Downtime Cost Calculator",
+    desc: "Scores deployment frequency and MTTR, then converts them into an annual cost of unplanned downtime.",
+    image: "/tool-devops-maturity.png",
+    imageAlt: "DevOps Maturity & Downtime Cost Calculator interface",
+  },
+  {
+    key: "data-silo-cost",
+    tag: "Data & Analytics · CDO / VP Analytics · MOFU",
+    idx: "3.9",
+    title: "Data Silo Cost Calculator",
+    desc: "Calculates the hidden cost of fragmented data vs. a unified data platform.",
+    image: "/tool-data-silo-cost.png",
+    imageAlt: "Data Silo Cost Calculator interface",
+  },
+  {
+    key: "saas-consolidation",
+    tag: "IT Procurement · CIO · MOFU",
+    idx: "3.10",
+    title: "SaaS Stack Consolidation Savings Calculator",
+    desc: "Identifies redundant and overlapping SaaS licenses and quantifies recoverable spend.",
+    image: "/tool-saas-consolidation.png",
+    imageAlt: "SaaS Stack Consolidation Savings Calculator interface",
   },
 ];
 
@@ -167,16 +220,11 @@ const BODY_HTML = `
     <div class="coverflow-wrap reveal" id="coverflowMount"></div>
 
     <div style="margin-top:52px;padding-top:32px;border-top:1px solid var(--line);">
-      <div class="section-eyebrow" style="margin-bottom:18px;">3.6 · Additional Tool Concepts in Development</div>
+      <div class="section-eyebrow" style="margin-bottom:18px;">3.11 · Additional Tool Concepts in Development</div>
       <div class="cap-grid" style="border:none;background:transparent;gap:0;grid-template-columns:1fr 1fr;">
-        <div style="padding:10px 24px 10px 0;border-bottom:1px solid var(--line);font-size:13.5px;"><b>Shadow AI &amp; Data Exposure Risk Assessment</b><br><span style="color:var(--graphite);font-size:12.5px;">Cybersecurity · CISO / CDO · TOFU</span></div>
-        <div style="padding:10px 0 10px 24px;border-bottom:1px solid var(--line);font-size:13.5px;"><b>IT Spend Benchmarking Tool</b><br><span style="color:var(--graphite);font-size:12.5px;">FinOps · CFO / CIO · TOFU–MOFU</span></div>
-        <div style="padding:10px 24px 10px 0;border-bottom:1px solid var(--line);font-size:13.5px;"><b>DevOps Maturity &amp; Downtime Cost Calculator</b><br><span style="color:var(--graphite);font-size:12.5px;">Platform Eng / SRE · VP Eng · MOFU</span></div>
-        <div style="padding:10px 0 10px 24px;border-bottom:1px solid var(--line);font-size:13.5px;"><b>Data Silo Cost Calculator</b><br><span style="color:var(--graphite);font-size:12.5px;">Data &amp; Analytics · CDO / VP Analytics · MOFU</span></div>
-        <div style="padding:10px 24px 10px 0;border-bottom:1px solid var(--line);font-size:13.5px;"><b>SaaS Stack Consolidation Savings Calculator</b><br><span style="color:var(--graphite);font-size:12.5px;">IT Procurement · CIO · MOFU</span></div>
-        <div style="padding:10px 0 10px 24px;border-bottom:1px solid var(--line);font-size:13.5px;"><b>Service Desk Automation ROI Calculator</b><br><span style="color:var(--graphite);font-size:12.5px;">Managed Services / ITSM · VP IT Ops · MOFU–BOFU</span></div>
-        <div style="padding:10px 24px 10px 0;font-size:13.5px;"><b>GenAI Adoption Readiness Assessment</b><br><span style="color:var(--graphite);font-size:12.5px;">Data &amp; AI Strategy · Chief AI Officer · TOFU</span></div>
-        <div style="padding:10px 0 10px 24px;font-size:13.5px;"><b>Business Continuity / Downtime Exposure Assessment</b><br><span style="color:var(--graphite);font-size:12.5px;">Infrastructure Resilience · CIO / CISO · TOFU–MOFU</span></div>
+        <div style="padding:10px 24px 10px 0;border-bottom:1px solid var(--line);font-size:13.5px;"><b>Service Desk Automation ROI Calculator</b><br><span style="color:var(--graphite);font-size:12.5px;">Managed Services / ITSM · VP IT Ops · MOFU–BOFU</span></div>
+        <div style="padding:10px 0 10px 24px;border-bottom:1px solid var(--line);font-size:13.5px;"><b>GenAI Adoption Readiness Assessment</b><br><span style="color:var(--graphite);font-size:12.5px;">Data &amp; AI Strategy · Chief AI Officer · TOFU</span></div>
+        <div style="padding:10px 24px 10px 0;font-size:13.5px;"><b>Business Continuity / Downtime Exposure Assessment</b><br><span style="color:var(--graphite);font-size:12.5px;">Infrastructure Resilience · CIO / CISO · TOFU–MOFU</span></div>
       </div>
     </div>
 

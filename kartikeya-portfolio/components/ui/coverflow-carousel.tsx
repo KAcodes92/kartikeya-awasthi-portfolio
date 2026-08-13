@@ -271,6 +271,8 @@ export function CoverflowCarousel({
                     src={slide.image}
                     alt={slide.imageAlt ?? slide.title ?? ""}
                     draggable={false}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    decoding="async"
                     className="cfx-image"
                   />
                 ) : (
