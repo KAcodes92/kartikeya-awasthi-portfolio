@@ -172,59 +172,58 @@
     color:var(--graphite-soft);border:1px dashed var(--line);padding:3px 8px;border-radius:20px;
   }
 
-  /* COVERFLOW — tool portfolio (reference: coverflow carousel pattern) */
-  .coverflow-wrap{
-    position:relative;user-select:none;
-  }
-  .coverflow-track{
-    position:relative;height:520px;perspective:1800px;
+  /* COVERFLOW — tool portfolio (React island, see components/ui/coverflow-carousel.tsx) */
+  .coverflow-wrap{position:relative;}
+  .cfx-root{--cfx-card:480px;position:relative;user-select:none;}
+  .cfx-frame{
+    position:relative;height:calc(var(--cfx-card) + 40px);
     display:flex;align-items:center;justify-content:center;
-    cursor:grab;
+    cursor:grab;outline:none;touch-action:pan-y;
   }
-  .coverflow-track.dragging{cursor:grabbing;}
-  .cf-card{
-    position:absolute;width:480px;height:480px;
-    transition:transform .5s cubic-bezier(.22,.68,0,1), opacity .5s, z-index 0s;
-    will-change:transform;
+  .cfx-frame:active{cursor:grabbing;}
+  .cfx-frame:focus-visible{box-shadow:0 0 0 2px var(--accent-bright) inset;}
+  .cfx-stage{position:relative;height:var(--cfx-card);width:100%;transform-style:preserve-3d;}
+  .cfx-card{
+    position:absolute;left:50%;top:0;width:var(--cfx-card);aspect-ratio:1/1;
+    will-change:transform;cursor:pointer;
   }
-  .cf-card-face{
+  .cfx-face{
     width:100%;height:100%;background:var(--paper);border:1px solid var(--line);
     padding:32px 30px;display:flex;flex-direction:column;
     box-shadow:0 14px 36px rgba(6,14,26,0.1);
-    overflow:hidden;
+    overflow:hidden;position:relative;
   }
-  .cf-card-face.has-image{padding:0;}
-  .cf-image{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
-  .cf-tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.07em;color:var(--accent);font-weight:600;margin-bottom:12px;}
-  .cf-idx{position:absolute;top:26px;right:26px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--graphite-soft);}
-  .cf-card-face h3{font-family:'Source Serif 4',serif;font-size:22px;font-weight:500;margin-bottom:12px;line-height:1.2;}
-  .cf-card-face p{font-size:13.5px;color:var(--graphite);line-height:1.55;}
+  .cfx-face--image{padding:0;}
+  .cfx-image{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+  .cfx-tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.07em;color:var(--accent);font-weight:600;margin-bottom:12px;}
+  .cfx-idx{position:absolute;top:26px;right:26px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--graphite-soft);}
+  .cfx-face h3{font-family:'Source Serif 4',serif;font-size:22px;font-weight:500;margin-bottom:12px;line-height:1.2;}
+  .cfx-face p{font-size:13.5px;color:var(--graphite);line-height:1.55;}
 
-  .cf-controls{
+  .cfx-controls{
     display:flex;align-items:flex-start;justify-content:center;gap:32px;margin-top:36px;
   }
-  .cf-btn{
+  .cfx-btn{
     width:40px;height:40px;border:1px solid var(--line);background:var(--paper);
     font-size:16px;color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s;
     border-radius:2px;flex-shrink:0;margin-top:6px;
   }
-  .cf-btn:hover{border-color:var(--accent);background:var(--paper-dim);}
-  .cf-detail{
+  .cfx-btn:hover{border-color:var(--accent);background:var(--paper-dim);}
+  .cfx-detail{
     text-align:center;max-width:560px;min-height:120px;
   }
-  .cf-detail-tag{
+  .cfx-detail-tag{
     font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
     color:var(--accent);font-weight:600;margin-bottom:10px;
   }
-  .cf-detail-title{font-family:'Source Serif 4',serif;font-size:23px;font-weight:500;margin-bottom:10px;}
-  .cf-detail-desc{font-size:14.5px;color:var(--graphite);line-height:1.6;margin-bottom:14px;}
-  .cf-detail-link{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);font-weight:600;}
-  .cf-detail-link:hover{text-decoration:underline;}
+  .cfx-detail-title{font-family:'Source Serif 4',serif;font-size:23px;font-weight:500;margin-bottom:10px;}
+  .cfx-detail-desc{font-size:14.5px;color:var(--graphite);line-height:1.6;margin-bottom:14px;}
+  .cfx-detail-link{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);font-weight:600;}
+  .cfx-detail-link:hover{text-decoration:underline;}
   @media(max-width:700px){
-    .cf-card{width:300px;height:340px;}
-    .coverflow-track{height:380px;perspective:1100px;}
-    .cf-controls{flex-direction:column;align-items:center;gap:16px;}
-    .cf-btn{margin-top:0;}
+    .cfx-root{--cfx-card:280px;}
+    .cfx-controls{flex-direction:column;align-items:center;gap:16px;}
+    .cfx-btn{margin-top:0;}
   }
 
   /* METHODOLOGY */

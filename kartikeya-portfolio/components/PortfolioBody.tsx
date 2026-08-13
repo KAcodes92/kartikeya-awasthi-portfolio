@@ -5,7 +5,55 @@
 // scoped to this single file and safe to refactor into React state later.
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+
+import { CoverflowCarousel, type CoverflowSlide } from "@/components/ui/coverflow-carousel";
+
+const TOOL_SLIDES: CoverflowSlide[] = [
+  {
+    key: "claims-ai",
+    url: "https://claims-ai-healthcaretool.vercel.app/",
+    tag: "Healthcare · Payer Ops · MOFU",
+    idx: "3.1",
+    title: "Claims AI Accelerator",
+    desc: "ROI calculator for VP/Director Claims Ops, COO and CMO. Models denial-overturn rate and claims-leakage dollars recovered against the visitor's own claim volume.",
+    image: "/tool-claims-ai.png",
+    imageAlt: "Claims AI Accelerator interface",
+  },
+  {
+    key: "legacy-mod",
+    url: "https://legacy-mod-savings-estimator.vercel.app/",
+    tag: "BFSI · Insurance · Healthcare · MOFU-BOFU",
+    idx: "3.2",
+    title: "Legacy Modernization Savings Estimator",
+    desc: "Multi-variant business-case builder for CIO/CTO and Heads of Digital Transformation.",
+  },
+  {
+    key: "ai-governance",
+    url: "https://ai-governance-assessment-tool.vercel.app/",
+    tag: "Regulated Sectors · TOFU-MOFU",
+    idx: "3.3",
+    title: "AI Governance Assessment",
+    desc: "Quiz-based diagnostic scoring regulatory exposure for Compliance and Risk leaders.",
+  },
+  {
+    key: "underwriting-ai",
+    url: "https://underwriting-ai-roi-calculator.vercel.app/",
+    tag: "Insurance · Underwriting · MOFU",
+    idx: "3.4",
+    title: "Underwriting AI ROI Calculator",
+    desc: "Quantifies cycle-time reduction and loss-ratio improvement in dollar terms.",
+  },
+  {
+    key: "cloud-migration",
+    url: "https://cloud-migration-infrastructure-tco.vercel.app/",
+    tag: "Cross-Industry · Infrastructure · MOFU",
+    idx: "3.5",
+    title: "Cloud Migration & Infrastructure TCO Calculator",
+    desc: "On-prem/legacy hosting cost vs. cloud TCO, with migration payback in months.",
+  },
+];
 
 const BODY_HTML = `
 
@@ -116,69 +164,7 @@ const BODY_HTML = `
       <p class="section-note">A self-directed body of work applying tool-based demand generation across regulated verticals. Brands shown are fictitious portfolio demonstrations, built to test funnel mechanics and buyer psychology. They are not client deployments.</p>
     </div>
 
-    <div class="coverflow-wrap reveal">
-      <div class="coverflow-track" id="coverflowTrack">
-        <div class="cf-card" data-index="0" data-url="https://claims-ai-healthcaretool.vercel.app/"
-             data-tag="Healthcare · Payer Ops · MOFU" data-title="Claims AI Accelerator" data-idx="3.1"
-             data-desc="ROI calculator for VP/Director Claims Ops, COO and CMO. Models denial-overturn rate and claims-leakage dollars recovered against the visitor's own claim volume."
-             data-img="/tool-claims-ai.png">
-          <div class="cf-card-face has-image">
-            <img src="/tool-claims-ai.png" alt="Claims AI Accelerator interface" class="cf-image">
-          </div>
-        </div>
-        <div class="cf-card" data-index="1" data-url="https://legacy-mod-savings-estimator.vercel.app/"
-             data-tag="BFSI · Insurance · Healthcare · MOFU-BOFU" data-title="Legacy Modernization Savings Estimator" data-idx="3.2"
-             data-desc="Multi-variant business-case builder for CIO/CTO and Heads of Digital Transformation. Every assumption is editable, delivery cost and upkeep savings split out as a defensible line-item case.">
-          <div class="cf-card-face">
-            <div class="cf-tag">BFSI · Insurance · Healthcare · MOFU-BOFU</div>
-            <div class="cf-idx">3.2</div>
-            <h3>Legacy Modernization Savings Estimator</h3>
-            <p>Multi-variant business-case builder for CIO/CTO and Heads of Digital Transformation.</p>
-          </div>
-        </div>
-        <div class="cf-card" data-index="2" data-url="https://ai-governance-assessment-tool.vercel.app/"
-             data-tag="Regulated Sectors · TOFU-MOFU" data-title="AI Governance Assessment" data-idx="3.3"
-             data-desc="Quiz-based diagnostic for Chief Compliance Officers, CROs, General Counsel and CISOs. Returns a dollarized regulatory-exposure number scored against SEC, FINRA and HIPAA citations.">
-          <div class="cf-card-face">
-            <div class="cf-tag">Regulated Sectors · TOFU-MOFU</div>
-            <div class="cf-idx">3.3</div>
-            <h3>AI Governance Assessment</h3>
-            <p>Quiz-based diagnostic scoring regulatory exposure for Compliance and Risk leaders.</p>
-          </div>
-        </div>
-        <div class="cf-card" data-index="3" data-url="https://underwriting-ai-roi-calculator.vercel.app/"
-             data-tag="Insurance · Underwriting · MOFU" data-title="Underwriting AI ROI Calculator" data-idx="3.4"
-             data-desc="For Chief Underwriting Officers and VP Underwriting. Quantifies cycle-time reduction and loss-ratio improvement in dollar terms.">
-          <div class="cf-card-face">
-            <div class="cf-tag">Insurance · Underwriting · MOFU</div>
-            <div class="cf-idx">3.4</div>
-            <h3>Underwriting AI ROI Calculator</h3>
-            <p>Quantifies cycle-time reduction and loss-ratio improvement in dollar terms.</p>
-          </div>
-        </div>
-        <div class="cf-card" data-index="4" data-url="https://cloud-migration-infrastructure-tco.vercel.app/"
-             data-tag="Cross-Industry · Infrastructure · MOFU" data-title="Cloud Migration &amp; Infrastructure TCO Calculator" data-idx="3.5"
-             data-desc="For CIOs, VPs of Infrastructure and Heads of Cloud. On-prem/legacy hosting cost vs. cloud TCO, with migration payback period in months.">
-          <div class="cf-card-face">
-            <div class="cf-tag">Cross-Industry · Infrastructure · MOFU</div>
-            <div class="cf-idx">3.5</div>
-            <h3>Cloud Migration &amp; Infrastructure TCO Calculator</h3>
-            <p>On-prem/legacy hosting cost vs. cloud TCO, with migration payback in months.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cf-controls">
-        <button type="button" class="cf-btn" id="cfPrev" aria-label="Previous tool">&larr;</button>
-        <div class="cf-detail">
-          <div class="cf-detail-tag" id="cfTag">Healthcare · Payer Ops · MOFU</div>
-          <h3 class="cf-detail-title" id="cfTitle">Claims AI Accelerator</h3>
-          <p class="cf-detail-desc" id="cfDesc">ROI calculator for VP/Director Claims Ops, COO and CMO. Models denial-overturn rate and claims-leakage dollars recovered against the visitor's own claim volume.</p>
-          <a class="cf-detail-link" id="cfLink" href="https://claims-ai-healthcaretool.vercel.app/" target="_blank" rel="noopener">Launch tool &#8599;</a>
-        </div>
-        <button type="button" class="cf-btn" id="cfNext" aria-label="Next tool">&rarr;</button>
-      </div>
-    </div>
+    <div class="coverflow-wrap reveal" id="coverflowMount"></div>
 
     <div style="margin-top:52px;padding-top:32px;border-top:1px solid var(--line);">
       <div class="section-eyebrow" style="margin-bottom:18px;">3.6 · Additional Tool Concepts in Development</div>
@@ -300,6 +286,13 @@ const BODY_HTML = `
 
 export default function PortfolioBody() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [coverflowMount, setCoverflowMount] = useState<HTMLElement | null>(null);
+
+  // BODY_HTML is injected via dangerouslySetInnerHTML on the next render past
+  // this ref attaching, so the mount node only exists once that effect runs.
+  useEffect(() => {
+    setCoverflowMount(containerRef.current?.querySelector("#coverflowMount") ?? null);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -335,75 +328,6 @@ export default function PortfolioBody() {
   });
   function setActive(i){ railLinks.forEach((l,idx)=>l.classList.toggle('active', idx===i)); }
 
-  // Coverflow carousel
-  (function(){
-    const track = document.getElementById('coverflowTrack');
-    if(!track) return;
-    const cards = Array.from(track.querySelectorAll('.cf-card'));
-    const tagEl = document.getElementById('cfTag');
-    const titleEl = document.getElementById('cfTitle');
-    const descEl = document.getElementById('cfDesc');
-    const linkEl = document.getElementById('cfLink');
-    let active = 0;
-
-    function layout(){
-      const n = cards.length;
-      const isMobile = window.innerWidth < 700;
-      const spacing = isMobile ? 110 : 260;
-      const depth = isMobile ? 110 : 220;
-      cards.forEach((card, i)=>{
-        let offset = i - active;
-        if(offset > n/2) offset -= n;
-        if(offset < -n/2) offset += n;
-        const abs = Math.abs(offset);
-        let x = offset * spacing;
-        let z = -abs * depth;
-        let rotateY = offset * -34;
-        let scale = abs === 0 ? 1 : 0.8;
-        let opacity = abs > 2 ? 0 : 1;
-        card.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${rotateY}deg) scale(${scale})`;
-        card.style.zIndex = 100 - abs;
-        card.style.opacity = opacity;
-        card.style.pointerEvents = abs === 0 ? 'auto' : 'none';
-      });
-      const c = cards[active];
-      tagEl.textContent = c.dataset.tag;
-      titleEl.innerHTML = c.dataset.title;
-      descEl.textContent = c.dataset.desc;
-      linkEl.href = c.dataset.url;
-    }
-
-    document.getElementById('cfPrev').addEventListener('click', ()=>{
-      active = (active - 1 + cards.length) % cards.length; layout();
-    });
-    document.getElementById('cfNext').addEventListener('click', ()=>{
-      active = (active + 1) % cards.length; layout();
-    });
-    cards.forEach((card, i)=>{
-      card.addEventListener('click', ()=>{
-        if(i !== active){ active = i; layout(); }
-        else { window.open(card.dataset.url, '_blank'); }
-      });
-    });
-
-    // drag support
-    let startX = 0, dragging = false;
-    track.addEventListener('pointerdown', e=>{ dragging = true; startX = e.clientX; track.classList.add('dragging'); });
-    window.addEventListener('pointerup', e=>{
-      if(!dragging) return;
-      dragging = false; track.classList.remove('dragging');
-      const dx = e.clientX - startX;
-      if(dx > 40){ active = (active - 1 + cards.length) % cards.length; layout(); }
-      else if(dx < -40){ active = (active + 1) % cards.length; layout(); }
-    });
-    window.addEventListener('resize', layout);
-
-    layout();
-    ScrollTrigger.create({trigger:track, start:'top 90%', once:true, onEnter:()=>{
-      gsap.to(track,{opacity:1,duration:.5});
-    }});
-  })();
-
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
   if(mq.matches){document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity=1;el.style.transform='none';});}
 
@@ -427,9 +351,12 @@ export default function PortfolioBody() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      dangerouslySetInnerHTML={{ __html: BODY_HTML }}
-    />
+    <>
+      <div
+        ref={containerRef}
+        dangerouslySetInnerHTML={{ __html: BODY_HTML }}
+      />
+      {coverflowMount && createPortal(<CoverflowCarousel slides={TOOL_SLIDES} />, coverflowMount)}
+    </>
   );
 }
