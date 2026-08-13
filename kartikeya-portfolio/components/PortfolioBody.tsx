@@ -22,7 +22,6 @@ const BODY_HTML = `
     <div class="nav-links">
       <a href="#summary">Summary</a>
       <a href="#capabilities">Capabilities</a>
-      <a href="#engagements">Engagements</a>
       <a href="#tools">Tools</a>
       <a href="#methodology">Methodology</a>
       <a href="#record">Record</a>
@@ -34,7 +33,6 @@ const BODY_HTML = `
 <div class="rail">
   <a href="#summary" class="active" title="Summary"></a>
   <a href="#capabilities" title="Capabilities"></a>
-  <a href="#engagements" title="Engagements"></a>
   <a href="#tools" title="Tools"></a>
   <a href="#methodology" title="Methodology"></a>
   <a href="#record" title="Record"></a>
@@ -111,54 +109,17 @@ const BODY_HTML = `
   </div>
 </section>
 
-<section id="engagements">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="section-eyebrow">Exhibit 3.0 · Selected Engagements</div><h2>Five engagements, from BFSI demand motions to platform GTM builds</h2></div>
-      <p class="section-note">Five representative engagements. Confidential details abstracted per client agreement.</p>
-    </div>
-    <div class="port-list">
-      <div class="port-item reveal">
-        <div class="port-idx">3.1</div>
-        <div><div class="port-tag">Interactive Tool · Consideration Stage</div><h3>Modernization ROI Calculator</h3><p>Interactive tool qualifying legacy-modernization prospects by estimated cost/time savings, designed against the 2026 benchmark that ROI calculators convert 28–42% on landing pages, vs. 4–8% for static PDFs.</p><span class="placeholder-tag">Actual completion / lead data: pending</span></div>
-        <div class="port-meta"><div class="port-metric">28–42%</div><div class="port-metric-label">Industry benchmark conversion range for this tool type</div></div>
-      </div>
-      <div class="port-item reveal">
-        <div class="port-idx">3.2</div>
-        <div><div class="port-tag">Interactive Tool · Awareness → Engagement</div><h3>AI Governance Assessment</h3><p>Diagnostic assessment scoring AI readiness and governance maturity for BFSI/Insurance compliance leaders. Built against the "governed intelligence" narrative surfaced in Q2 market signal analysis.</p><span class="placeholder-tag">Actual completion / lead data: pending</span></div>
-        <div class="port-meta"><div class="port-metric">22–38%</div><div class="port-metric-label">Industry benchmark for diagnostic/scorecard tools</div></div>
-      </div>
-      <div class="port-item reveal">
-        <div class="port-idx">3.3</div>
-        <div><div class="port-tag">GTM Motion · Q2 2026</div><h3>Enterprise BFSI Demand Motion</h3><p>Fourteen campaigns across six offer themes reaching 1,891 BFSI accounts. Beat the 2026 cold-outreach benchmark, with top-engaged accounts concentrated at $5B+ revenue.</p></div>
-        <div class="port-meta"><div class="port-metric">4.9%</div><div class="port-metric-label">Reply rate vs. 1.5–3.5% BFSI norm</div></div>
-      </div>
-      <div class="port-item reveal">
-        <div class="port-idx">3.4</div>
-        <div><div class="port-tag">GTM Narrative &amp; Architecture</div><h3>Synthetix: 13-Module GTM Build</h3><p>Full go-to-market narrative and product architecture for an AI-led legacy modernization platform, positioned across BFSI, Insurance, and Healthcare for sales and pre-sales enablement.</p></div>
-        <div class="port-meta"><div class="port-metric">13</div><div class="port-metric-label">GTM modules, 3 verticals</div></div>
-      </div>
-      <div class="port-item reveal">
-        <div class="port-idx">3.5</div>
-        <div><div class="port-tag">0 → 1 Build</div><h3>Qritrim Inc.: Marketing Engine From Scratch</h3><p>Built the marketing function from zero at a portfolio startup. Work later recognized with CII National Gold &amp; Silver for AI-driven Industry 4.0 solutions.</p></div>
-        <div class="port-meta"><div class="port-metric">+70%</div><div class="port-metric-label">Inbound inquiry growth, year one</div></div>
-      </div>
-    </div>
-    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 3.0 · Selected Engagements</span></div>
-  </div>
-</section>
-
 <section id="tools">
   <div class="wrap">
     <div class="section-head">
-      <div><div class="section-eyebrow">Exhibit 4.0 · AI-Led Lead Generation Tool Portfolio</div><h2>Fourteen demand tools, designed to prove the strategy, not just illustrate it</h2></div>
+      <div><div class="section-eyebrow">Exhibit 3.0 · AI-Led Lead Generation Tool Portfolio</div><h2>Fourteen demand tools, designed to prove the strategy, not just illustrate it</h2></div>
       <p class="section-note">A self-directed body of work applying tool-based demand generation across regulated verticals. Brands shown are fictitious portfolio demonstrations, built to test funnel mechanics and buyer psychology. They are not client deployments.</p>
     </div>
 
     <div class="coverflow-wrap reveal">
       <div class="coverflow-track" id="coverflowTrack">
         <div class="cf-card" data-index="0" data-url="https://claims-ai-healthcaretool.vercel.app/"
-             data-tag="Healthcare · Payer Ops · MOFU" data-title="Claims AI Accelerator" data-idx="4.1"
+             data-tag="Healthcare · Payer Ops · MOFU" data-title="Claims AI Accelerator" data-idx="3.1"
              data-desc="ROI calculator for VP/Director Claims Ops, COO and CMO. Models denial-overturn rate and claims-leakage dollars recovered against the visitor's own claim volume."
              data-img="/tool-claims-ai.png">
           <div class="cf-card-face has-image">
@@ -166,41 +127,41 @@ const BODY_HTML = `
           </div>
         </div>
         <div class="cf-card" data-index="1" data-url="https://legacy-mod-savings-estimator.vercel.app/"
-             data-tag="BFSI · Insurance · Healthcare · MOFU-BOFU" data-title="Legacy Modernization Savings Estimator" data-idx="4.2"
+             data-tag="BFSI · Insurance · Healthcare · MOFU-BOFU" data-title="Legacy Modernization Savings Estimator" data-idx="3.2"
              data-desc="Multi-variant business-case builder for CIO/CTO and Heads of Digital Transformation. Every assumption is editable, delivery cost and upkeep savings split out as a defensible line-item case.">
           <div class="cf-card-face">
             <div class="cf-tag">BFSI · Insurance · Healthcare · MOFU-BOFU</div>
-            <div class="cf-idx">4.2</div>
+            <div class="cf-idx">3.2</div>
             <h3>Legacy Modernization Savings Estimator</h3>
             <p>Multi-variant business-case builder for CIO/CTO and Heads of Digital Transformation.</p>
           </div>
         </div>
         <div class="cf-card" data-index="2" data-url="https://ai-governance-assessment-tool.vercel.app/"
-             data-tag="Regulated Sectors · TOFU-MOFU" data-title="AI Governance Assessment" data-idx="4.3"
+             data-tag="Regulated Sectors · TOFU-MOFU" data-title="AI Governance Assessment" data-idx="3.3"
              data-desc="Quiz-based diagnostic for Chief Compliance Officers, CROs, General Counsel and CISOs. Returns a dollarized regulatory-exposure number scored against SEC, FINRA and HIPAA citations.">
           <div class="cf-card-face">
             <div class="cf-tag">Regulated Sectors · TOFU-MOFU</div>
-            <div class="cf-idx">4.3</div>
+            <div class="cf-idx">3.3</div>
             <h3>AI Governance Assessment</h3>
             <p>Quiz-based diagnostic scoring regulatory exposure for Compliance and Risk leaders.</p>
           </div>
         </div>
         <div class="cf-card" data-index="3" data-url="https://underwriting-ai-roi-calculator.vercel.app/"
-             data-tag="Insurance · Underwriting · MOFU" data-title="Underwriting AI ROI Calculator" data-idx="4.4"
+             data-tag="Insurance · Underwriting · MOFU" data-title="Underwriting AI ROI Calculator" data-idx="3.4"
              data-desc="For Chief Underwriting Officers and VP Underwriting. Quantifies cycle-time reduction and loss-ratio improvement in dollar terms.">
           <div class="cf-card-face">
             <div class="cf-tag">Insurance · Underwriting · MOFU</div>
-            <div class="cf-idx">4.4</div>
+            <div class="cf-idx">3.4</div>
             <h3>Underwriting AI ROI Calculator</h3>
             <p>Quantifies cycle-time reduction and loss-ratio improvement in dollar terms.</p>
           </div>
         </div>
         <div class="cf-card" data-index="4" data-url="https://cloud-migration-infrastructure-tco.vercel.app/"
-             data-tag="Cross-Industry · Infrastructure · MOFU" data-title="Cloud Migration &amp; Infrastructure TCO Calculator" data-idx="4.5"
+             data-tag="Cross-Industry · Infrastructure · MOFU" data-title="Cloud Migration &amp; Infrastructure TCO Calculator" data-idx="3.5"
              data-desc="For CIOs, VPs of Infrastructure and Heads of Cloud. On-prem/legacy hosting cost vs. cloud TCO, with migration payback period in months.">
           <div class="cf-card-face">
             <div class="cf-tag">Cross-Industry · Infrastructure · MOFU</div>
-            <div class="cf-idx">4.5</div>
+            <div class="cf-idx">3.5</div>
             <h3>Cloud Migration &amp; Infrastructure TCO Calculator</h3>
             <p>On-prem/legacy hosting cost vs. cloud TCO, with migration payback in months.</p>
           </div>
@@ -220,7 +181,7 @@ const BODY_HTML = `
     </div>
 
     <div style="margin-top:52px;padding-top:32px;border-top:1px solid var(--line);">
-      <div class="section-eyebrow" style="margin-bottom:18px;">4.6 · Additional Tool Concepts in Development</div>
+      <div class="section-eyebrow" style="margin-bottom:18px;">3.6 · Additional Tool Concepts in Development</div>
       <div class="cap-grid" style="border:none;background:transparent;gap:0;grid-template-columns:1fr 1fr;">
         <div style="padding:10px 24px 10px 0;border-bottom:1px solid var(--line);font-size:13.5px;"><b>Shadow AI &amp; Data Exposure Risk Assessment</b><br><span style="color:var(--graphite);font-size:12.5px;">Cybersecurity · CISO / CDO · TOFU</span></div>
         <div style="padding:10px 0 10px 24px;border-bottom:1px solid var(--line);font-size:13.5px;"><b>IT Spend Benchmarking Tool</b><br><span style="color:var(--graphite);font-size:12.5px;">FinOps · CFO / CIO · TOFU–MOFU</span></div>
@@ -233,31 +194,31 @@ const BODY_HTML = `
       </div>
     </div>
 
-    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 4.0 · Tool Portfolio</span></div>
+    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 3.0 · Tool Portfolio</span></div>
   </div>
 </section>
 
 <section id="methodology">
   <div class="wrap">
     <div class="section-head">
-      <div><div class="section-eyebrow">Exhibit 5.0 · Methodology</div><h2>Strategic depth, disclosed at the level of thinking</h2></div>
+      <div><div class="section-eyebrow">Exhibit 4.0 · Methodology</div><h2>Strategic depth, disclosed at the level of thinking</h2></div>
       <p class="section-note">Five frameworks applied consistently across engagements, shown to demonstrate rigor rather than serve as a replicable playbook.</p>
     </div>
     <div class="gtm-modules">
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">5.1</div><div><div class="gtm-mod-title">Market Signal → GTM Fit Mapping</div><div class="gtm-mod-sub">Identifying white-space before committing to a motion</div></div></div>
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">5.2</div><div><div class="gtm-mod-title">Enterprise Segmentation Architecture</div><div class="gtm-mod-sub">Prioritizing accounts by revenue, pain-fit, and engagement trajectory</div></div></div>
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">5.3</div><div><div class="gtm-mod-title">AI-Led Content &amp; Tool Design</div><div class="gtm-mod-sub">Turning a buyer question into an interactive, self-qualifying asset</div></div></div>
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">5.4</div><div><div class="gtm-mod-title">Demand Engine Design</div><div class="gtm-mod-sub">Offer architecture, sequencing logic, escalation to sales-qualified</div></div></div>
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">5.5</div><div><div class="gtm-mod-title">Pipeline Modeling &amp; Attribution</div><div class="gtm-mod-sub">Conservative / base / upside scenarios, transparent and benchmark-backed</div></div></div>
+      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.1</div><div><div class="gtm-mod-title">Market Signal → GTM Fit Mapping</div><div class="gtm-mod-sub">Identifying white-space before committing to a motion</div></div></div>
+      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.2</div><div><div class="gtm-mod-title">Enterprise Segmentation Architecture</div><div class="gtm-mod-sub">Prioritizing accounts by revenue, pain-fit, and engagement trajectory</div></div></div>
+      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.3</div><div><div class="gtm-mod-title">AI-Led Content &amp; Tool Design</div><div class="gtm-mod-sub">Turning a buyer question into an interactive, self-qualifying asset</div></div></div>
+      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.4</div><div><div class="gtm-mod-title">Demand Engine Design</div><div class="gtm-mod-sub">Offer architecture, sequencing logic, escalation to sales-qualified</div></div></div>
+      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.5</div><div><div class="gtm-mod-title">Pipeline Modeling &amp; Attribution</div><div class="gtm-mod-sub">Conservative / base / upside scenarios, transparent and benchmark-backed</div></div></div>
     </div>
-    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 5.0 · Methodology</span></div>
+    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 4.0 · Methodology</span></div>
   </div>
 </section>
 
 <section id="record">
   <div class="wrap">
     <div class="section-head">
-      <div><div class="section-eyebrow">Exhibit 6.0 · Professional Record</div><h2>Escalating scope, from RFP rigor to AI-native GTM</h2></div>
+      <div><div class="section-eyebrow">Exhibit 5.0 · Professional Record</div><h2>Escalating scope, from RFP rigor to AI-native GTM</h2></div>
       <p class="section-note">Eleven years, six organizations, one throughline: building the system behind the number.</p>
     </div>
     <table class="record-table">
@@ -294,27 +255,27 @@ const BODY_HTML = `
         </tr>
       </tbody>
     </table>
-    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 6.0 · Professional Record</span></div>
+    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 5.0 · Professional Record</span></div>
   </div>
 </section>
 
 <section id="credentials">
   <div class="wrap">
     <div class="section-head">
-      <div><div class="section-eyebrow">Exhibit 7.0 · Credentials &amp; Recognition</div><h2>Education and formal recognition</h2></div>
+      <div><div class="section-eyebrow">Exhibit 6.0 · Credentials &amp; Recognition</div><h2>Education and formal recognition</h2></div>
     </div>
     <div class="cred-grid">
       <div class="cred-card reveal"><div class="cc-label">Education</div><div class="cc-title">MBA, Marketing Management</div><div class="cc-sub">NMIMS Mumbai</div></div>
       <div class="cred-card reveal"><div class="cc-label">Education</div><div class="cc-title">B.Tech, Mechanical &amp; Automation Engineering</div><div class="cc-sub">GGSIPU Delhi</div></div>
       <div class="cred-card reveal"><div class="cc-label">Recognition</div><div class="cc-title">CII National Gold &amp; Silver</div><div class="cc-sub">AI-driven Industry 4.0 Solutions, Qritrim Inc.</div></div>
     </div>
-    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 7.0 · Credentials</span></div>
+    <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 6.0 · Credentials</span></div>
   </div>
 </section>
 
 <section class="engage" id="engage" style="border-top:none;">
   <div class="wrap">
-    <div class="section-eyebrow">Exhibit 8.0 · Engagement</div>
+    <div class="section-eyebrow">Exhibit 7.0 · Engagement</div>
     <h2>The machine your GTM function needs, architected and operated.</h2>
     <div class="engage-grid">
       <p class="engage-note">Open to Senior Director, VP Marketing, and GTM Consulting mandates across BFSI, Insurance, Healthcare, and enterprise IT services. Based in Delhi NCR, India. Engaged with teams globally.</p>
@@ -364,7 +325,7 @@ export default function PortfolioBody() {
     }});
   }
   const railLinks = document.querySelectorAll('.rail a');
-  const sections = ['summary','capabilities','engagements','tools','methodology','record','engage'].map(id=>document.getElementById(id));
+  const sections = ['summary','capabilities','tools','methodology','record','engage'].map(id=>document.getElementById(id));
   sections.forEach((sec,i)=>{
     if(!sec) return;
     ScrollTrigger.create({
