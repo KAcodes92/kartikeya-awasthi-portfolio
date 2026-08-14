@@ -184,7 +184,7 @@
   .cfx-frame:focus-visible{box-shadow:0 0 0 2px var(--accent-bright) inset;}
   .cfx-stage{position:relative;height:var(--cfx-card);width:100%;transform-style:preserve-3d;}
   .cfx-card{
-    position:absolute;left:50%;top:0;width:var(--cfx-card);aspect-ratio:1/1;
+    position:absolute;left:50%;top:0;width:var(--cfx-card);height:var(--cfx-card);aspect-ratio:1/1;
     will-change:transform;cursor:pointer;
   }
   .cfx-face{
