@@ -9,6 +9,92 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { CoverflowCarousel, type CoverflowSlide } from "@/components/ui/coverflow-carousel";
+import { PracticeGrid, type PracticeItem } from "@/components/ui/practice-grid";
+import { MethodologyScrubber, type MethodStep } from "@/components/ui/methodology-scrubber";
+
+const PRACTICE_ITEMS: PracticeItem[] = [
+  {
+    key: "ai-native",
+    idx: "2.1",
+    title: "AI-Native Marketing Systems",
+    teaser: "Building the AI Marketing function from scratch.",
+    desc: "Building the AI Marketing function from scratch: agents, workflow automation, and AI-driven enrichment embedded across content, campaigns, and operations.",
+    tags: ["AI Agents", "Workflow Automation", "Prompt Engineering"],
+  },
+  {
+    key: "gtm-strategy",
+    idx: "2.2",
+    title: "GTM Strategy & Positioning",
+    teaser: "Market signal mapping and vertical positioning.",
+    desc: "Market signal mapping, TAM/SAM definition, vertical positioning across BFSI, Insurance, Healthcare and staffing.",
+    tags: ["TAM/SAM", "Segmentation", "Vertical GTM"],
+  },
+  {
+    key: "demand-gen",
+    idx: "2.3",
+    title: "Demand Generation & ABM",
+    teaser: "Multi-channel architecture, scoring, attribution.",
+    desc: "Multi-channel campaign architecture, lead scoring, and pipeline attribution, run at enterprise scale.",
+    tags: ["ABM 2.0", "Lead Scoring", "Sales Enablement"],
+  },
+  {
+    key: "content-search",
+    idx: "2.4",
+    title: "Content & Search Strategy",
+    teaser: "Persona-driven content, extended into AI-search.",
+    desc: "Persona-driven content architecture, extended into AI-search visibility as buyer discovery shifts from search engines to answer engines.",
+    tags: ["SEO / AEO / GEO", "Editorial Strategy", "Persona Mapping"],
+  },
+  {
+    key: "martech",
+    idx: "2.5",
+    title: "MarTech & Analytics",
+    teaser: "HubSpot, Salesforce, ZoomInfo, owned end-to-end.",
+    desc: "HubSpot, Salesforce/Pardot, ZoomInfo, and Apollo, owned end-to-end, including a $68K/yr contract audit and renegotiation.",
+    tags: ["HubSpot", "Salesforce", "ROI Reporting"],
+  },
+  {
+    key: "team-leadership",
+    idx: "2.6",
+    title: "Team & Stakeholder Leadership",
+    teaser: "Built and led teams of 15+, reporting into VP Marketing.",
+    desc: "Built and led teams of 15+, reporting into VP Marketing, partnering cross-functionally with sales, product, engineering.",
+    tags: ["Team Building", "Exec Comms", "Cross-functional"],
+  },
+];
+
+const METHOD_STEPS: MethodStep[] = [
+  {
+    key: "signal-fit",
+    shortTitle: "Market Signal → GTM Fit",
+    title: "Market Signal → GTM Fit Mapping",
+    desc: "Identifying white-space before committing to a motion. Signal is triangulated across search demand, competitive gaps, and account-level intent before a single campaign is briefed.",
+  },
+  {
+    key: "segmentation",
+    shortTitle: "Segmentation Architecture",
+    title: "Enterprise Segmentation Architecture",
+    desc: "Prioritizing accounts by revenue, pain-fit, and engagement trajectory, so spend concentrates on the accounts most likely to convert and expand.",
+  },
+  {
+    key: "content-tool",
+    shortTitle: "AI-Led Content & Tool Design",
+    title: "AI-Led Content & Tool Design",
+    desc: "Turning a buyer question into an interactive, self-qualifying asset, rather than a static page the buyer has to interpret alone.",
+  },
+  {
+    key: "demand-engine",
+    shortTitle: "Demand Engine Design",
+    title: "Demand Engine Design",
+    desc: "Offer architecture, sequencing logic, and escalation to sales-qualified, built so every stage has a clear next action for the buyer.",
+  },
+  {
+    key: "pipeline-modeling",
+    shortTitle: "Pipeline Modeling & Attribution",
+    title: "Pipeline Modeling & Attribution",
+    desc: "Conservative / base / upside scenarios, transparent and benchmark-backed, so forecasts hold up under scrutiny from finance and sales leadership.",
+  },
+];
 
 const TOOL_SLIDES: CoverflowSlide[] = [
   {
@@ -192,20 +278,14 @@ const BODY_HTML = `
   <div class="stat-cell reveal"><div class="stat-num">$7.1M</div><div class="stat-label">Base-case influenced pipeline</div><div class="stat-caveat">Modelled, not booked revenue</div></div>
 </div>
 
-<section id="capabilities">
+<section id="capabilities" class="cinematic-section">
+  <div class="grain-overlay"></div>
   <div class="wrap">
     <div class="section-head">
       <div><div class="section-eyebrow">Exhibit 2.0 · Areas of Practice</div><h2>Strategy, execution, and the AI layer connecting them</h2></div>
-      <p class="section-note">Six practice areas, each backed by portfolio evidence and career record.</p>
+      <p class="section-note">Six practice areas, each backed by portfolio evidence and career record. Click a tile to open the brief.</p>
     </div>
-    <div class="cap-grid">
-      <div class="cap-card reveal"><div class="cap-num">2.1</div><h3>AI-Native Marketing Systems</h3><p>Building the AI Marketing function from scratch: agents, workflow automation, and AI-driven enrichment embedded across content, campaigns, and operations.</p><div class="cap-tags"><span>AI Agents</span><span>Workflow Automation</span><span>Prompt Engineering</span></div></div>
-      <div class="cap-card reveal"><div class="cap-num">2.2</div><h3>GTM Strategy &amp; Positioning</h3><p>Market signal mapping, TAM/SAM definition, vertical positioning across BFSI, Insurance, Healthcare and staffing.</p><div class="cap-tags"><span>TAM/SAM</span><span>Segmentation</span><span>Vertical GTM</span></div></div>
-      <div class="cap-card reveal"><div class="cap-num">2.3</div><h3>Demand Generation &amp; ABM</h3><p>Multi-channel campaign architecture, lead scoring, and pipeline attribution, run at enterprise scale.</p><div class="cap-tags"><span>ABM 2.0</span><span>Lead Scoring</span><span>Sales Enablement</span></div></div>
-      <div class="cap-card reveal"><div class="cap-num">2.4</div><h3>Content &amp; Search Strategy</h3><p>Persona-driven content architecture, extended into AI-search visibility as buyer discovery shifts from search engines to answer engines.</p><div class="cap-tags"><span>SEO / AEO / GEO</span><span>Editorial Strategy</span><span>Persona Mapping</span></div></div>
-      <div class="cap-card reveal"><div class="cap-num">2.5</div><h3>MarTech &amp; Analytics</h3><p>HubSpot, Salesforce/Pardot, ZoomInfo, and Apollo, owned end-to-end, including a $68K/yr contract audit and renegotiation.</p><div class="cap-tags"><span>HubSpot</span><span>Salesforce</span><span>ROI Reporting</span></div></div>
-      <div class="cap-card reveal"><div class="cap-num">2.6</div><h3>Team &amp; Stakeholder Leadership</h3><p>Built and led teams of 15+, reporting into VP Marketing, partnering cross-functionally with sales, product, engineering.</p><div class="cap-tags"><span>Team Building</span><span>Exec Comms</span><span>Cross-functional</span></div></div>
-    </div>
+    <div class="reveal" id="practiceMount"></div>
     <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 2.0 · Areas of Practice</span></div>
   </div>
 </section>
@@ -232,19 +312,14 @@ const BODY_HTML = `
   </div>
 </section>
 
-<section id="methodology">
+<section id="methodology" class="cinematic-section cinematic-section--methodology">
+  <div class="grain-overlay"></div>
   <div class="wrap">
     <div class="section-head">
       <div><div class="section-eyebrow">Exhibit 4.0 · Methodology</div><h2>Strategic depth, disclosed at the level of thinking</h2></div>
-      <p class="section-note">Five frameworks applied consistently across engagements, shown to demonstrate rigor rather than serve as a replicable playbook.</p>
+      <p class="section-note">Five frameworks applied consistently across engagements. Scrub through the sequence below.</p>
     </div>
-    <div class="gtm-modules">
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.1</div><div><div class="gtm-mod-title">Market Signal → GTM Fit Mapping</div><div class="gtm-mod-sub">Identifying white-space before committing to a motion</div></div></div>
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.2</div><div><div class="gtm-mod-title">Enterprise Segmentation Architecture</div><div class="gtm-mod-sub">Prioritizing accounts by revenue, pain-fit, and engagement trajectory</div></div></div>
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.3</div><div><div class="gtm-mod-title">AI-Led Content &amp; Tool Design</div><div class="gtm-mod-sub">Turning a buyer question into an interactive, self-qualifying asset</div></div></div>
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.4</div><div><div class="gtm-mod-title">Demand Engine Design</div><div class="gtm-mod-sub">Offer architecture, sequencing logic, escalation to sales-qualified</div></div></div>
-      <div class="gtm-mod reveal"><div class="gtm-mod-num">4.5</div><div><div class="gtm-mod-title">Pipeline Modeling &amp; Attribution</div><div class="gtm-mod-sub">Conservative / base / upside scenarios, transparent and benchmark-backed</div></div></div>
-    </div>
+    <div class="reveal" id="methodologyMount"></div>
     <div class="doc-footer"><span>Kartikeya Awasthi · GTM &amp; Demand Generation</span><span>Exhibit 4.0 · Methodology</span></div>
   </div>
 </section>
@@ -335,11 +410,15 @@ const BODY_HTML = `
 export default function PortfolioBody() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [coverflowMount, setCoverflowMount] = useState<HTMLElement | null>(null);
+  const [practiceMount, setPracticeMount] = useState<HTMLElement | null>(null);
+  const [methodologyMount, setMethodologyMount] = useState<HTMLElement | null>(null);
 
   // BODY_HTML is injected via dangerouslySetInnerHTML on the next render past
-  // this ref attaching, so the mount node only exists once that effect runs.
+  // this ref attaching, so the mount nodes only exist once that effect runs.
   useEffect(() => {
     setCoverflowMount(containerRef.current?.querySelector("#coverflowMount") ?? null);
+    setPracticeMount(containerRef.current?.querySelector("#practiceMount") ?? null);
+    setMethodologyMount(containerRef.current?.querySelector("#methodologyMount") ?? null);
   }, []);
 
   useEffect(() => {
@@ -405,6 +484,8 @@ export default function PortfolioBody() {
         dangerouslySetInnerHTML={{ __html: BODY_HTML }}
       />
       {coverflowMount && createPortal(<CoverflowCarousel slides={TOOL_SLIDES} />, coverflowMount)}
+      {practiceMount && createPortal(<PracticeGrid items={PRACTICE_ITEMS} />, practiceMount)}
+      {methodologyMount && createPortal(<MethodologyScrubber steps={METHOD_STEPS} />, methodologyMount)}
     </>
   );
 }
